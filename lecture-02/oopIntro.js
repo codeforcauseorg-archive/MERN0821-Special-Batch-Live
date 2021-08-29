@@ -33,11 +33,9 @@ class Human {
   set name(value) {
       this.#name = value;
   }
-
 }
 
 let anuj = new Human("Anuj Garg");
-// console.log(anuj.name());
 
 let ravi = new Human("Ravi Garg");
 
