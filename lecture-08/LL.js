@@ -1,23 +1,3 @@
-// class Human {
-
-//     constructor(name, next=null){
-//         this.name = name;
-//         this.next = next;
-//     }
-// }
-
-// ravi = new Human("Ravi")
-// katie = new Human("Katie")
-// sachin = new Human("Sachin")
-// tina = new Human("Tina")
-// ram = new Human("Ram")
-
-// ravi.next = katie
-// katie.next = sachin
-// sachin.next = tina
-// tina.next = ram
-// console.log(ravi.next.next.next.name)
-
 class Node {
     constructor(value, next=null){
         this.value = value;
@@ -41,23 +21,6 @@ class LinkedList {
         }
 
         this.#size += 1;
-    }
-
-    removeFirst = function() {
-        if(this.#size === 0){
-            throw Error("List is empty");
-        }
-
-        let value = this.#head.value;
-        this.#head = this.#head.next;
-
-        if(this.#size == 1){
-            this.#tail = null;
-        }
-
-        this.#size -= 1;
-
-        return value;
     }
 
     insertLast = function(value) {
@@ -96,6 +59,61 @@ class LinkedList {
         this.#size += 1;
     }
 
+    removeFirst = function() {
+        if(this.#size === 0){
+            throw Error("List is empty");
+        }
+
+        let value = this.#head.value;
+        this.#head = this.#head.next;
+
+        if(this.#size == 1){
+            this.#tail = null;
+        }
+
+        this.#size -= 1;
+
+        return value;
+    }
+
+    removeLast = function () {
+        if(this.#size == 1){
+            return this.removeFirst();
+        }
+
+        let value = this.#tail.value;
+        let secondLast = this.#getByIndex(this.#size-2);
+        this.#tail = secondLast;
+        this.#tail.next = null;
+
+        this.#size -= 1;
+
+        return value;
+    }
+
+    remove = function (index) {
+        if(index == 0){
+            return this.removeFirst();
+        }
+
+        if(index == this.#size-1){
+            return this.removeLast();
+        }
+
+        let prev = this.#getByIndex(index-1);
+        let value = prev.next.value;
+        prev.next = prev.next.next;
+
+        this.#size -= 1;
+
+        return value;
+    }
+
+    getValue = function (index) {
+        return this.#getByIndex(index).value; 
+    }
+
+
     #getByIndex = function(index) {
         let temp = this.#head;
         for (let i = 0; i < index; i++) {
@@ -118,6 +136,31 @@ class LinkedList {
     size = function () {
         return this.#size;
     }
+
+    clean = function () {
+        this.#head = null;
+        this.#tail = null;
+        this.#size = 0;
+    }
+
+    reverse = function() {
+        
+        let prev = null;
+        let present = this.#head;
+
+        this.#tail = present;
+
+        while(present){
+            let temp = present.next;
+            present.next = prev;
+
+            prev = present;
+            present = temp;
+        }
+
+        this.#head = prev;
+
+    }
 }
 
 class Stack {
@@ -131,19 +174,25 @@ class Stack {
     pop = function () {
         return this.#data.removeFirst();   
     }
+
+    top = function() {
+        return this.#data.getValue(0);  
+    }
+
+    isEmpty = function() {
+        return this.#data.size() == 0;;  
+    }
 }
 
 let ll = new LinkedList();
 
-ll.insertFirst("Katie");
-ll.insertLast("Sachin");
-ll.insert("Mohit", 1);
-
-ll.insert("Shubham", 5);
-
-console.log(ll.size());
-
-
+ll.insertLast("a");
+ll.insertLast("b");
+ll.insertLast("c");
+ll.insertLast("d");
 
 ll.display();
 
+ll.reverse();
+
+ll.display();
