@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+        .mybox {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("https://images.unsplash.com/photo-1597953601374-1ff2d5640c85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80");
+            background-repeat: no-repeat;
+        }
+
+        .inner{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background-color: rgba(255, 0, 0, .4);
+            top: 25%;
+            left: 25%;
+            border: 2px solid black;
+            border-radius: 80px 0px 40px 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mybox">
+        <div class="inner">
+            <span style="background-color: chartreuse;">My data</span>
+        </div>
+    </div>
+</body>
+</html>

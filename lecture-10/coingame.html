@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0px;
+      }
+
+      #root {
+        width: 100vw;
+        height: 100vh;
+        background-color: silver;
+        position: relative;
+      }
+
+      .coins {
+        width: 60px;
+        height: 50px;
+        position: absolute;
+      }
+
+      #scoreboard {
+        position: absolute;
+        color: tomato;
+        top: 20px;
+        left: 20px;
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+    <script>
+    //   function base() {}
+
+    function level0() {
+        let root = document.getElementById("root");
+        let start = document.createElement("button");
+        start.innerHTML = "Start";
+        start.onclick = level1;
+        root.appendChild(start);
+    }
+
+      function level1(event) {
+        let root = document.getElementById("root");
+        root.innerHTML = "";
+        let scoreboard = document.createElement("h1");
+        scoreboard.innerHTML = "Score : 0";
+        scoreboard.setAttribute("id", "scoreboard");
+        root.appendChild(scoreboard);
+        let score = 0;
+
+        setInterval(function () {
+          let coin = document.createElement("img");
+          coin.setAttribute(
+            "src",
+            "https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png"
+          );
+          coin.setAttribute("class", "coins");
+          let top = parseInt(Math.random() * window.innerHeight);
+          let left = parseInt(Math.random() * window.innerWidth);
+          coin.style.setProperty("top", top + "px");
+          coin.style.setProperty("left", left + "px");
+          let avail = true;
+
+          coin.onmouseover = function (event) {
+            root.removeChild(coin);
+            avail = false;
+            score += 10;
+            scoreboard.innerHTML = `Score : ${score}`;
+            let audio = new Audio("./coin.wav");
+            audio.play();
+          };
+
+          root.appendChild(coin);
+
+          setTimeout(function () {
+            if (avail) {
+              root.removeChild(coin);
+            }
+          }, 2000);
+        }, 500);
+      }
+
+      level0();
+    </script>
+  </body>
+</html>
