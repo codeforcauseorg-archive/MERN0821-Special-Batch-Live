@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <div id="root">
+        <form>
+            <input id="name" name="name"/>
+            <input id="email" name="email"/>
+            <button>Sumbit</button>
+        </form>
+      </div>
+    <script>
+        let root =  document.getElementById("root");
+      
+        let handler = function(){
+            let h = document.createElement("h1");
+            h.innerHTML = new Date();
+            root.appendChild(h);
+
+            setTimeout(function(){
+                root.removeChild(h);
+            }, 3000);
+        };
+
+      setInterval(handler, 1000);
+
+    </script>
+  </body>
+</html>

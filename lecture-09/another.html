@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <img id="mypic" />
+      <form id="myform">
+        <input id="username" name="username" />
+        <button>Sumbit</button>
+      </form>
+    </div>
+    <script>
+      let myform = document.getElementById("myform");
+      let pic = document.getElementById("mypic");
+      let username = document.getElementById("username");
+
+      myform.onsubmit = function (e) {
+        e.preventDefault();
+        let data = username.value;
+        let responsePromise = axios.get("https://api.github.com/users/" + data);
+
+        responsePromise.then(function (resposne) {
+            pic.setAttribute("src", resposne.data.avatar_url);
+
+        });
+
+        
+
+
+
+      };
+    </script>
+  </body>
+</html>
