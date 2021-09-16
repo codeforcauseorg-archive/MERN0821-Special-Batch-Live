@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+          margin: 0px;
+        }
+        #root {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 100vh;
+            justify-content: space-evenly;
+            align-items: baseline;
+        }
+        #h11 {
+          width: 200px;
+          height: 200px;
+          border: 2px solid red;
+          order: 0;
+        }
+        #h12 {
+          width: 200px;
+          height: 400px;
+          border: 2px solid red;
+          order: 1;
+        }
+        #h13 {
+          width: 200px;
+          height: 300px;
+          border: 2px solid red;
+          order: 3;
+        }
+        #h14 {
+          width: 200px;
+          height: 100px;
+          border: 2px solid red;
+        }
+    </style>
+  </head>
+  <body>
+      <div id="root">
+        <h1 id="h11">1</h1>
+        <h1 id="h12">2</h1>
+        <h1 id="h13">3</h1>
+        <h1 id="h14">4</h1>
+
+  </body>
+</html>
