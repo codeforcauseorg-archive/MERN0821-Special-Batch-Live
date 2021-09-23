@@ -1,0 +1,19 @@
+.container {
+  background-color: cadetblue;
+  display: grid;
+  grid-template: 2fr 1fr 1fr / 10fr 1fr 1fr;
+  gap: 10px 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.item {
+  background: brown;
+  height: 150px;
+  width: 100px;
+}
+
+.i1 {
+  align-self: flex-end;
+  justify-self: end;
+}
