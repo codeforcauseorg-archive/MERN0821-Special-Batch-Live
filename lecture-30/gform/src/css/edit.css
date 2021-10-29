@@ -1,0 +1,32 @@
+#formheadingedit{
+    font-size: 40px;
+}
+
+#topedit {
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+    background-color: white;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    border-top: 8px solid blue;
+}
+
+#topedit:focus-within {
+    border-left: 4px solid red;
+}
+
+.qdivedit {
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+    background-color: white;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+}
+
+.qdivedit:focus-within {
+    border-left: 4px solid red;
+}
